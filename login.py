@@ -45,29 +45,33 @@ st.markdown("""
         background-color: #45a049;
     }
 
-  /* 🔥 Mensajes personalizados */
-    /* --- Success --- */
-    .stAlert[data-baseweb="notification"] {
-        background-color: #4CAF50 !important;
-        opacity: 1 !important;
-        color: white !important;
-        border-radius: 8px;
-        padding: 0.75rem 1rem;
-    }
+  /* 🔥 Mensajes personalizados: SIN OPACIDAD COMPLETA */
 
-    /* --- Error --- */
-    .stAlert[data-baseweb="notification"][role="alert"] {
-        background-color: #f44336 !important;
-        opacity: 1 !important;
-        color: white !important;
-    }
+/* Mensajes generales */
+div[role="alert"] {
+    opacity: 1 !important;
+}
 
-    /* --- Warning --- */
-    .stAlert[data-baseweb="notification"][role="status"] {
-        background-color: #ff9800 !important;
-        opacity: 1 !important;
-        color: white !important;
-    }
+/* Success */
+.stAlert[data-baseweb="notification"] {
+    background-color: #4CAF50 !important;
+    opacity: 1 !important;
+    color: white !important;
+    border-radius: 8px !important;
+    padding: 0.75rem 1rem !important;
+}
+
+/* Error */
+.stAlert[data-baseweb="notification"][role="alert"] {
+    background-color: #f44336 !important;
+    opacity: 1 !important;
+}
+
+/* Warning */
+.stAlert[data-baseweb="notification"][role="status"] {
+    background-color: #ff9800 !important;
+    opacity: 1 !important;
+}
     </style>
 """, unsafe_allow_html=True)
 
