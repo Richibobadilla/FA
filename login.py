@@ -53,24 +53,32 @@ div[role="alert"] {
 }
 
 /* Success */
-.stAlert[data-baseweb="notification"] {
-    background-color: #4CAF50 !important;
+/* ✅ ALERTAS 100% OPACAS Y PERSONALIZADAS */
+
+/* Base: TODOS los elementos de notificación */
+div[data-testid="stNotificationContent"] {
     opacity: 1 !important;
     color: white !important;
     border-radius: 8px !important;
     padding: 0.75rem 1rem !important;
+    font-weight: 600;
 }
 
-/* Error */
-.stAlert[data-baseweb="notification"][role="alert"] {
+/* ✅ SUCCESS */
+div[data-testid="stNotificationContent"] p {
+    background-color: #4CAF50 !important;
+    padding: 0.5rem;
+    border-radius: 8px;
+}
+
+/* ❌ ERROR */
+div[data-testid="stNotificationContent"][role="alert"] p {
     background-color: #f44336 !important;
-    opacity: 1 !important;
 }
 
-/* Warning */
-.stAlert[data-baseweb="notification"][role="status"] {
+/* ⚠️ WARNING */
+div[data-testid="stNotificationContent"][role="status"] p {
     background-color: #ff9800 !important;
-    opacity: 1 !important;
 }
     </style>
 """, unsafe_allow_html=True)
