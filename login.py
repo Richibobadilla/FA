@@ -45,37 +45,30 @@ st.markdown("""
         background-color: #45a049;
     }
 
- /* 🔥 MENSAJES Streamlit SIN OPACIDAD Y CON COLORES CLAROS Y FIRMES */
+ /* 🔥 ALERTAS Streamlit: sin opacidad y con color sólido correcto */
 
-/* Base de todas las alertas */
-div[class*="stAlert"] {
+/* Elimina toda opacidad interna de las notificaciones */
+div[data-testid="stNotificationContent"] * {
     opacity: 1 !important;
-}
-
-/* Elementos internos sin opacidad */
-div[class*="stAlert"] * {
-    opacity: 1 !important;
-    font-weight: 600;
+    color: white !important;
 }
 
 /* ✅ SUCCESS (verde sólido) */
-div[class*="stAlert"][data-testid="stNotification"]:not([role]) {
+div[data-testid="stNotificationContent"]:not([role]) {
     background-color: #4CAF50 !important;
-    color: white !important;
     border-radius: 8px !important;
     padding: 0.75rem 1rem !important;
 }
 
 /* ❌ ERROR (rojo sólido) */
-div[class*="stAlert"][data-testid="stNotification"][role="alert"] {
+div[data-testid="stNotificationContent"][role="alert"] {
     background-color: #f44336 !important;
-    color: white !important;
     border-radius: 8px !important;
     padding: 0.75rem 1rem !important;
 }
 
 /* ⚠️ WARNING (naranja sólido) */
-div[class*="stAlert"][data-testid="stNotification"][role="status"] {
+div[data-testid="stNotificationContent"][role="status"] {
     background-color: #ff9800 !important;
     color: black !important;
     border-radius: 8px !important;
