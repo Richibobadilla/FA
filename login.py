@@ -62,7 +62,7 @@ USUARIOS = {
 def login():
     st.markdown('<div class="login-box">', unsafe_allow_html=True)
     
-    st.markdown("### Inicia sesión 🐼")
+    st.markdown("### Inicia sesión")
     usuario = st.text_input("Usuario")
     contraseña = st.text_input("Contraseña", type="password")
     login_btn = st.button("Ingresar")
