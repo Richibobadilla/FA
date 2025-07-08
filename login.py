@@ -4,7 +4,6 @@ st.markdown("""
     <style>
     .stApp {
         background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-        color: white;
     }
 
     .login-box {
@@ -18,26 +17,26 @@ st.markdown("""
         box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
     }
 
-    /* INPUTS: Fondo oscuro, texto blanco */
-    input[type="text"], input[type="password"], .stTextInput input {
-        background-color: rgba(255, 255, 255, 0.1) !important;
-        color: white !important;
-        border: 1px solid rgba(255, 255, 255, 0.3);
+    /* --- INPUTS: texto negro y fondo blanco translúcido --- */
+    input, .stTextInput input {
+        color: black !important;
+        background-color: rgba(255, 255, 255, 0.9) !important;
+        border: 1px solid rgba(0, 0, 0, 0.2);
         border-radius: 8px;
         padding: 0.5rem;
     }
 
-    /* LABELS */
+    /* --- ETIQUETAS --- */
     label, .stTextInput label {
         color: white !important;
-        font-weight: 500;
+        font-weight: 600;
         margin-bottom: 0.5rem;
     }
 
-    /* BOTÓN */
+    /* --- BOTÓN --- */
     .stButton>button {
         background-color: #4CAF50;
-        color: white;
+        color: white !important;
         border: none;
         border-radius: 8px;
         padding: 0.6rem 1.2rem;
@@ -45,12 +44,12 @@ st.markdown("""
         margin-top: 1rem;
     }
 
-    /* OPCIONAL: quitar sombra blanca en hover */
     .stButton>button:hover {
         background-color: #45a049;
     }
     </style>
 """, unsafe_allow_html=True)
+
 
 
 # --- Diccionario de usuarios (usuario: contraseña) ---
