@@ -4,7 +4,7 @@ import streamlit as st
 st.markdown("""
     <style>
     .stApp {
-        background: linear-gradient(to right, #c2e9fb → #a1c4fd);
+        background: linear-gradient(to right, #c2e9fb, #a1c4fd);
     }
 
     .login-box {
