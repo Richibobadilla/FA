@@ -1,5 +1,8 @@
 import streamlit as st
 import pandas as pd
+from estilos import aplicar_estilos
+
+aplicar_estilos()  # 💅 Para conservar el diseño
 
 def postlogin():
     st.title(f"Bienvenido, {st.session_state['usuario'].capitalize()} 👋")

@@ -1,13 +1,14 @@
 import streamlit as st
 from login import login
 from postlogin import postlogin
+from estilos import aplicar_estilos
 
-# Inicializa variable de sesión si no existe
+aplicar_estilos()  # 💅 Aplica tus colores y estilos
+
 if "logueado" not in st.session_state:
     st.session_state["logueado"] = False
 
-# Si ya está logueado, mostrar post-login
-if st.session_state["logueado"]:
-    postlogin()
-else:
+if not st.session_state["logueado"]:
     login()
+else:
+    postlogin()
