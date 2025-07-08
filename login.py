@@ -1,8 +1,5 @@
 import streamlit as st
 
-import streamlit as st
-
-# --- CSS limpio y funcional para Streamlit actual ---
 st.markdown("""
     <style>
     .stApp {
@@ -21,33 +18,40 @@ st.markdown("""
         box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
     }
 
-    /* Mejorar campos de texto */
-    input, .stTextInput>div>div>input {
-        background-color: #ffffff10;
-        color: #ffffff !important;
-        border: 1px solid #ffffff50;
-        border-radius: 0.5rem;
+    /* INPUTS: Fondo oscuro, texto blanco */
+    input[type="text"], input[type="password"], .stTextInput input {
+        background-color: rgba(255, 255, 255, 0.1) !important;
+        color: white !important;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 8px;
         padding: 0.5rem;
     }
 
-    /* Botón principal */
-    button {
-        background-color: #4CAF50;
+    /* LABELS */
+    label, .stTextInput label {
         color: white !important;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+    }
+
+    /* BOTÓN */
+    .stButton>button {
+        background-color: #4CAF50;
+        color: white;
         border: none;
+        border-radius: 8px;
         padding: 0.6rem 1.2rem;
-        border-radius: 0.5rem;
         font-weight: bold;
         margin-top: 1rem;
     }
 
-    /* Etiquetas de texto */
-    label, .stTextInput label {
-        color: white !important;
-        font-weight: 600;
+    /* OPCIONAL: quitar sombra blanca en hover */
+    .stButton>button:hover {
+        background-color: #45a049;
     }
     </style>
 """, unsafe_allow_html=True)
+
 
 # --- Diccionario de usuarios (usuario: contraseña) ---
 USUARIOS = {
