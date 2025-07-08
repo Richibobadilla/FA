@@ -86,19 +86,4 @@ def login():
     
     st.markdown('</div>', unsafe_allow_html=True)
 
-# --- App principal ---
-def app_principal():
-    st.title(f"Hola, {st.session_state['usuario']} 👋")
-    st.write("Aquí va el contenido de tu app.")
-    if st.button("Cerrar sesión"):
-        st.session_state["logueado"] = False
-        st.experimental_rerun()
-
-# --- Control de sesión ---
-if "logueado" not in st.session_state:
-    st.session_state["logueado"] = False
-
-if st.session_state["logueado"]:
-    app_principal()
-else:
-    login()
+login()
