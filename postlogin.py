@@ -8,6 +8,13 @@ def postlogin():
     st.title(f"Bienvenido, {st.session_state['usuario'].capitalize()} 👋")
     st.write("Puedes subir tu archivo Excel para comenzar:")
 
+    # 👉 Botón de cerrar sesión
+    if st.button("🔒 Cerrar sesión"):
+        st.session_state["logueado"] = False
+        st.session_state["usuario"] = ""
+        st.success("Has cerrado sesión correctamente.")
+        st.experimental_rerun()
+
     archivo = st.file_uploader("Sube tu archivo Excel (.xlsx)", type=["xlsx"])
 
     if archivo:
