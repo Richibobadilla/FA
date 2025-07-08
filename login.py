@@ -1,10 +1,7 @@
 import streamlit as st
-
-# --- CSS personalizado (fondo, inputs, botones, y AHORA alertas) ---
 from estilos import aplicar_estilos
+
 aplicar_estilos()
-
-
 
 # --- Diccionario de usuarios (usuario: contraseña) ---
 USUARIOS = {
@@ -17,8 +14,8 @@ def login():
     st.markdown('<div class="login-box">', unsafe_allow_html=True)
     
     st.markdown('<h1 style="color:white; text-align:center;">Inicia sesión</h1>', unsafe_allow_html=True)
-    usuario = st.text_input("Usuario")
-    contraseña = st.text_input("Contraseña", type="password")
+    usuario = st.text_input("Usuario", key="usuario_login")
+    contraseña = st.text_input("Contraseña", type="password", key="password_login")
     login_btn = st.button("Ingresar")
 
     if login_btn:
@@ -26,10 +23,8 @@ def login():
             st.session_state["logueado"] = True
             st.session_state["usuario"] = usuario
             st.success(f"¡Bienvenido, {usuario}!")
+            st.experimental_rerun()  # 🔁 Forzar recarga para entrar directo
         else:
             st.error("Usuario o contraseña incorrectos")
-    
-    st.markdown('</div>', unsafe_allow_html=True)
 
-# ✅ Llamar la función para que se muestre el login
-login()
+    st.markdown('</div>', unsafe_allow_html=True)
