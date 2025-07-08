@@ -13,7 +13,7 @@ def postlogin():
         st.session_state["logueado"] = False
         st.session_state["usuario"] = ""
         st.success("Has cerrado sesión correctamente.")
-        st.experimental_rerun()
+        st.rerun()
 
     archivo = st.file_uploader("Sube tu archivo Excel (.xlsx)", type=["xlsx"])
 
