@@ -21,11 +21,24 @@ def postlogin():
     # 👉 Espacio antes del botón
     st.markdown("<br><br>", unsafe_allow_html=True)
 
-    # 👉 Botón rojo al fondo
-    cerrar = st.button("🔒 Cerrar sesión", key="cerrar_sesion")
+    # 👉 Botón rojo al fondo con clase personalizada
+    st.markdown("""
+        <style>
+            .cerrar-btn > button {
+                background-color: #f44336 !important;
+                color: white !important;
+                border: none;
+                border-radius: 10px;
+                padding: 0.6rem 1.2rem;
+                font-weight: bold;
+                margin-top: 2rem;
+            }
+        </style>
+    """, unsafe_allow_html=True)
 
-    if cerrar:
-        st.session_state["logueado"] = False
-        st.session_state["usuario"] = ""
-        st.success("Has cerrado sesión correctamente.")
-        st.rerun()
+    with st.container():
+        cerrar = st.button("🔒 Cerrar sesión", key="cerrar_btn", help="Haz clic para cerrar sesión.")
+        if cerrar:
+            st.session_state["logueado"] = False
+            st.session_state["usuario"] = ""
+            st.rerun()
