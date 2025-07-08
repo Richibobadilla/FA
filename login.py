@@ -1,17 +1,15 @@
 import streamlit as st
 
-# --- CSS para fondo degradado y estilos bonitos ---
+# --- CSS corregido para fondo degradado y estilos limpios ---
 st.markdown("""
     <style>
-    body {
-        background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-    }
     .stApp {
         background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
         color: white;
     }
+
     .login-box {
-        background-color: rgba(255, 255, 255, 0.1);
+        background-color: rgba(255, 255, 255, 0.05);
         padding: 2rem;
         border-radius: 1rem;
         width: 100%;
@@ -20,7 +18,28 @@ st.markdown("""
         margin-top: 100px;
         box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
     }
-    input, button, label {
+
+    input[type="text"], input[type="password"] {
+        background-color: #ffffff20;
+        color: white !important;
+        border: 1px solid #ffffff55;
+        border-radius: 0.5rem;
+    }
+
+    button[kind="primary"] {
+        border-radius: 0.5rem;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        margin-top: 1rem;
+    }
+
+    label {
+        color: white;
+    }
+
+    .css-1v0mbdj.ef3psqc12 {
         color: white !important;
     }
     </style>
@@ -35,9 +54,8 @@ USUARIOS = {
 # --- Login ---
 def login():
     st.markdown('<div class="login-box">', unsafe_allow_html=True)
-    st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Panda_icon.svg/2048px-Panda_icon.svg.png", width=100)  # Puedes reemplazar con tu logo
-    st.title("Inicia sesión 🐼")
-
+    
+    st.markdown("### Inicia sesión 🐼")
     usuario = st.text_input("Usuario")
     contraseña = st.text_input("Contraseña", type="password")
     login_btn = st.button("Ingresar")
@@ -49,13 +67,13 @@ def login():
             st.success(f"¡Bienvenido, {usuario}!")
         else:
             st.error("Usuario o contraseña incorrectos")
+    
     st.markdown('</div>', unsafe_allow_html=True)
 
 # --- App principal ---
 def app_principal():
     st.title(f"Hola, {st.session_state['usuario']} 👋")
-    st.write("Aquí puedes colocar el contenido principal de tu app del trabajo 📊📁")
-
+    st.write("Aquí va el contenido de tu app.")
     if st.button("Cerrar sesión"):
         st.session_state["logueado"] = False
         st.experimental_rerun()
