@@ -1,18 +1,16 @@
 import streamlit as st
+import pandas as pd
 
-def post_login_view():
-    st.markdown(f"<h2 style='color: white;'>Bienvenido, {st.session_state['usuario']} 👋</h2>", unsafe_allow_html=True)
-    st.write("Sube un archivo Excel para comenzar:")
+def postlogin():
+    st.title(f"Bienvenido, {st.session_state['usuario'].capitalize()} 👋")
+    st.write("Puedes subir tu archivo Excel para comenzar:")
 
-    archivo = st.file_uploader("📂 Cargar archivo Excel", type=["xlsx"])
+    archivo = st.file_uploader("Sube tu archivo Excel (.xlsx)", type=["xlsx"])
 
     if archivo:
-        st.success("✅ Archivo recibido correctamente")
-        # Aquí podrías leerlo con pandas:
-        # import pandas as pd
-        # df = pd.read_excel(archivo)
-        # st.write(df)
-
-    if st.button("Cerrar sesión"):
-        st.session_state["logueado"] = False
-        st.experimental_rerun()
+        try:
+            df = pd.read_excel(archivo)
+            st.success("✅ Archivo cargado correctamente.")
+            st.dataframe(df)
+        except Exception as e:
+            st.error(f"❌ Error al leer el archivo: {e}")
