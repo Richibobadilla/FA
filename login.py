@@ -69,21 +69,27 @@ div[class*="stAlert"] * {
     color: white !important;
 }
 
-/* ✅ Success: verde */
-div[class*="stAlert"] div[role="alert"] {
+/* ✅ SUCCESS (verde) */
+div[class*="stAlert"][data-testid="stNotification"] {
     background-color: #4CAF50 !important;
+    color: white !important;
     border-radius: 8px;
     padding: 0.75rem 1rem;
+    opacity: 1 !important;
 }
 
-/* ❌ Error: rojo */
-div[class*="stAlert"][role="alert"] {
+/* ❌ ERROR (rojo) */
+div[class*="stAlert"][data-testid="stNotification"][role="alert"] {
     background-color: #f44336 !important;
+    color: white !important;
+    opacity: 1 !important;
 }
 
-/* ⚠️ Warning: naranja */
-div[class*="stAlert"][role="status"] {
+/* ⚠️ WARNING (naranja) */
+div[class*="stAlert"][data-testid="stNotification"][role="status"] {
     background-color: #ff9800 !important;
+    color: black !important;
+    opacity: 1 !important;
 }
     </style>
 """, unsafe_allow_html=True)
