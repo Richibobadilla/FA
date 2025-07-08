@@ -45,52 +45,43 @@ st.markdown("""
         background-color: #45a049;
     }
 
-  /* 🔥 Mensajes personalizados: SIN OPACIDAD COMPLETA */
+ /* 🔥 MENSAJES Streamlit SIN OPACIDAD Y CON COLORES CLAROS Y FIRMES */
 
-/* Mensajes generales */
-div[role="alert"] {
-    opacity: 1 !important;
-}
-
-/* Success */
-/* ✅ Forzar sin opacidad y colores vivos para success, error y warning */
-div[role="alert"] {
-    opacity: 1 !important;
-}
-
-/* Aplica a todos los tipos de alertas */
+/* Base de todas las alertas */
 div[class*="stAlert"] {
     opacity: 1 !important;
 }
 
-/* Elementos internos del bloque de notificación */
+/* Elementos internos sin opacidad */
 div[class*="stAlert"] * {
     opacity: 1 !important;
-    color: white !important;
+    font-weight: 600;
 }
 
-/* ✅ SUCCESS (verde) */
-div[class*="stAlert"][data-testid="stNotification"] {
+/* ✅ SUCCESS (verde sólido) */
+div[class*="stAlert"][data-testid="stNotification"]:not([role]) {
     background-color: #4CAF50 !important;
     color: white !important;
-    border-radius: 8px;
-    padding: 0.75rem 1rem;
-    opacity: 1 !important;
+    border-radius: 8px !important;
+    padding: 0.75rem 1rem !important;
 }
 
-/* ❌ ERROR (rojo) */
+/* ❌ ERROR (rojo sólido) */
 div[class*="stAlert"][data-testid="stNotification"][role="alert"] {
     background-color: #f44336 !important;
     color: white !important;
-    opacity: 1 !important;
+    border-radius: 8px !important;
+    padding: 0.75rem 1rem !important;
 }
 
-/* ⚠️ WARNING (naranja) */
+/* ⚠️ WARNING (naranja sólido) */
 div[class*="stAlert"][data-testid="stNotification"][role="status"] {
     background-color: #ff9800 !important;
     color: black !important;
-    opacity: 1 !important;
+    border-radius: 8px !important;
+    padding: 0.75rem 1rem !important;
 }
+
     </style>
 """, unsafe_allow_html=True)
 
