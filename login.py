@@ -1,5 +1,6 @@
 import streamlit as st
 
+# --- CSS personalizado (fondo, inputs, botones, y AHORA alertas) ---
 st.markdown("""
     <style>
     .stApp {
@@ -17,7 +18,6 @@ st.markdown("""
         box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
     }
 
-    /* --- INPUTS: texto negro y fondo blanco translúcido --- */
     input, .stTextInput input {
         color: black !important;
         background-color: rgba(255, 255, 255, 0.9) !important;
@@ -26,14 +26,11 @@ st.markdown("""
         padding: 0.5rem;
     }
 
-    /* --- ETIQUETAS --- */
     label, .stTextInput label {
         color: white !important;
         font-weight: 600;
-        margin-bottom: 0.5rem;
     }
 
-    /* --- BOTÓN --- */
     .stButton>button {
         background-color: #4CAF50;
         color: white !important;
@@ -47,8 +44,20 @@ st.markdown("""
     .stButton>button:hover {
         background-color: #45a049;
     }
+
+    /* 🔥 Mensajes como success(), error(), warning() sin opacidad */
+    .stAlert {
+        opacity: 1 !important;
+        color: white !important;
+    }
+    .stAlert > div {
+        background-color: rgba(76, 175, 80, 1) !important; /* verde para success */
+        border-radius: 0.5rem;
+        padding: 0.75rem 1rem;
+    }
     </style>
 """, unsafe_allow_html=True)
+
 
 
 
