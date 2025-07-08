@@ -18,35 +18,14 @@ def postlogin():
         except Exception as e:
             st.error(f"❌ Error al leer el archivo: {e}")
 
-    # 👉 Separador visual
-    st.markdown("---")
+    # 👉 Espacio antes del botón
+    st.markdown("<br><br>", unsafe_allow_html=True)
 
-    # 👉 Botón rojo de cerrar sesión al final
-    cerrar = st.markdown("""
-        <div style="display: flex; justify-content: center; margin-top: 30px;">
-            <form action="" method="post">
-                <button type="submit" style="
-                    background-color: #f44336;
-                    color: white;
-                    border: none;
-                    padding: 0.75rem 1.5rem;
-                    font-size: 16px;
-                    border-radius: 8px;
-                    cursor: pointer;
-                ">🔒 Cerrar sesión</button>
-            </form>
-        </div>
-    """, unsafe_allow_html=True)
+    # 👉 Botón rojo al fondo
+    cerrar = st.button("🔒 Cerrar sesión", key="cerrar_sesion")
 
-    # 👉 Capturar el evento con un workaround
-    if "cerrar_sesion" not in st.session_state:
-        st.session_state.cerrar_sesion = False
-
-    if st.session_state.cerrar_sesion:
+    if cerrar:
         st.session_state["logueado"] = False
         st.session_state["usuario"] = ""
+        st.success("Has cerrado sesión correctamente.")
         st.rerun()
-
-    # ⚙️ Detectar click (truco con st.form solo si necesitas una acción directa)
-    if st.button("🔒 Cerrar sesión", key="hidden_btn", help="Este botón es invisible", args=(), kwargs={}, disabled=True):
-        st.session_state.cerrar_sesion = True

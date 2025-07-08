@@ -68,5 +68,11 @@ def aplicar_estilos():
             border-radius: 8px !important;
             padding: 0.75rem 1rem !important;
         }
+        
+        /* 🔴 Botón rojo para cerrar sesión */
+        div.stButton > button#cerrar_sesion {
+            background-color: #f44336 !important;
+            color: white !important;
+        }
         </style>
     """, unsafe_allow_html=True)
