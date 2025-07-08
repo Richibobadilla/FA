@@ -53,31 +53,36 @@ div[role="alert"] {
 }
 
 /* Success */
-/* ✅ ALERTAS 100% OPACAS Y PERSONALIZADAS */
+/* ✅ Forzar sin opacidad y colores vivos para success, error y warning */
+div[role="alert"] {
+    opacity: 1 !important;
+}
 
-/* Base: TODOS los elementos de notificación */
-div[data-testid="stNotificationContent"] {
+/* Aplica a todos los tipos de alertas */
+div[class*="stAlert"] {
+    opacity: 1 !important;
+}
+
+/* Elementos internos del bloque de notificación */
+div[class*="stAlert"] * {
     opacity: 1 !important;
     color: white !important;
-    border-radius: 8px !important;
-    padding: 0.75rem 1rem !important;
-    font-weight: 600;
 }
 
-/* ✅ SUCCESS */
-div[data-testid="stNotificationContent"] p {
+/* ✅ Success: verde */
+div[class*="stAlert"] div[role="alert"] {
     background-color: #4CAF50 !important;
-    padding: 0.5rem;
     border-radius: 8px;
+    padding: 0.75rem 1rem;
 }
 
-/* ❌ ERROR */
-div[data-testid="stNotificationContent"][role="alert"] p {
+/* ❌ Error: rojo */
+div[class*="stAlert"][role="alert"] {
     background-color: #f44336 !important;
 }
 
-/* ⚠️ WARNING */
-div[data-testid="stNotificationContent"][role="status"] p {
+/* ⚠️ Warning: naranja */
+div[class*="stAlert"][role="status"] {
     background-color: #ff9800 !important;
 }
     </style>
