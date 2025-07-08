@@ -45,15 +45,27 @@ st.markdown("""
         background-color: #45a049;
     }
 
-    /* 🔥 Mensajes como success(), error(), warning() sin opacidad */
+ /* 🔥 Mensajes personalizados */
     .stAlert {
         opacity: 1 !important;
         color: white !important;
     }
-    .stAlert > div {
-        background-color: rgba(76, 175, 80, 1) !important; /* verde para success */
-        border-radius: 0.5rem;
+
+    /* ✅ Success */
+    .stAlert[data-baseweb="notification"] > div {
+        background-color: #4CAF50 !important;
+        border-radius: 8px;
         padding: 0.75rem 1rem;
+    }
+
+    /* ❌ Error */
+    .stAlert[data-baseweb="notification"][role="alert"] > div {
+        background-color: #f44336 !important;
+    }
+
+    /* ⚠️ Warning */
+    .stAlert[data-baseweb="notification"][role="status"] > div {
+        background-color: #ff9800 !important;
     }
     </style>
 """, unsafe_allow_html=True)
