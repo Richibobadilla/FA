@@ -45,27 +45,28 @@ st.markdown("""
         background-color: #45a049;
     }
 
- /* 🔥 Mensajes personalizados */
-    .stAlert {
+  /* 🔥 Mensajes personalizados */
+    /* --- Success --- */
+    .stAlert[data-baseweb="notification"] {
+        background-color: #4CAF50 !important;
         opacity: 1 !important;
         color: white !important;
-    }
-
-    /* ✅ Success */
-    .stAlert[data-baseweb="notification"] > div {
-        background-color: #4CAF50 !important;
         border-radius: 8px;
         padding: 0.75rem 1rem;
     }
 
-    /* ❌ Error */
-    .stAlert[data-baseweb="notification"][role="alert"] > div {
+    /* --- Error --- */
+    .stAlert[data-baseweb="notification"][role="alert"] {
         background-color: #f44336 !important;
+        opacity: 1 !important;
+        color: white !important;
     }
 
-    /* ⚠️ Warning */
-    .stAlert[data-baseweb="notification"][role="status"] > div {
+    /* --- Warning --- */
+    .stAlert[data-baseweb="notification"][role="status"] {
         background-color: #ff9800 !important;
+        opacity: 1 !important;
+        color: white !important;
     }
     </style>
 """, unsafe_allow_html=True)
